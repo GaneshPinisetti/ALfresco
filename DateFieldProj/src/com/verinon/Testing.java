@@ -10,7 +10,9 @@ public class Testing {
 		int b=6;
 		int c=a+b;
 		System.out.println("nbr is "+c);
-
+		int d=a-b;
+		System.out.println("nbr is "+d);
 	}
+	
 
 }
