@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="left-sidebar">
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+	<!-- Sidebar - Brand -->
+	<!-- <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html"> 
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+		<div class="sidebar-brand-text">ACS Export</div>
+	</a> -->
+
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+
+	<!-- Heading -->
+	<div class="sidebar-heading">Export</div>
+
+	<!-- Nav Item - Utilities Collapse Menu -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities"> 
+			<i class="fas fa-fw fa-wrench"></i> <span>Application</span>
+		</a>
+		<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Components:</h6>
+				<a class="collapse-item" th:href="@{/export/application/sites}">Sites</a> 
+				<a class="collapse-item" th:href="@{/export/application/users}">Users</a> 
+				<a class="collapse-item" th:href="@{/export/application/groups}">Groups</a> 
+				<a class="collapse-item" th:href="@{/export/application/task}">Task</a>
+			</div>
+		</div></li>
+
+	<!-- Nav Item - Pages Collapse Menu -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> 
+			<i class="fas fa-fw fa-cog"></i> <span>Site</span>
+		</a>
+		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Components:</h6>
+				<a class="collapse-item" th:href="@{/export/site/membersAndGroups}">Members & Groups</a>
+				<a class="collapse-item" th:href="@{/export/site/content}">Content</a> 
+				<a class="collapse-item" th:href="@{/export/site/discussions}">Discussions</a>
+				<a class="collapse-item" th:href="@{/export/site/calendar-or-events}">Calendar/Events</a>
+				<a class="collapse-item" th:href="@{/export/site/dataList}">Data List</a>
+				<a class="collapse-item" th:href="@{/export/site/links}">Links</a>
+				<a class="collapse-item" th:href="@{/export/site/blog-posts}">Blog Posts</a>
+				<a class="collapse-item" th:href="@{/export/site/wiki}">Wiki</a>
+				<a class="collapse-item" th:href="@{/export/site/categories}">Categories</a>
+				<!-- <a class="collapse-item" href="cards.html">Reports</a> -->
+			</div>
+		</div></li>
+
+
+	<!-- Divider -->
+	<hr class="sidebar-divider">
+
+	<!-- Heading -->
+	<div class="sidebar-heading">Reports</div>
+
+	<!-- Nav Item - Pages Collapse Menu -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages"> 
+			<i class="fas fa-fw fa-folder"></i> <span>Application</span>
+		</a>
+		<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">System Level Reports:</h6>
+				<a class="collapse-item" th:href="@{/reports/application/workflow-in-progress}">Workflow in Progress</a> 
+				<a class="collapse-item" th:href="@{/reports/application/workflow-summary}">Workflow Summary</a> 
+			</div>
+		</div>
+		<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSiteReports" aria-expanded="true" aria-controls="collapsePages"> 
+			<i class="fas fa-fw fa-folder"></i> <span>Site</span>
+		</a>
+		<div id="collapseSiteReports" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<h6 class="collapse-header">Site Level Reports:</h6>
+				<a class="collapse-item" th:href="@{/reports/site/scoring-marix-report}">Scoring matrix report</a> 
+				<a class="collapse-item" th:href="@{/reports/site/object-detailed-report}">Object detailed report</a> 
+				<a class="collapse-item" th:href="@{/reports/site/user-detailed-report}">User detailed report</a>
+				<a class="collapse-item" th:href="@{/reports/site/roles-detailed-report}">Roles detailed report</a>
+				<a class="collapse-item" th:href="@{/reports/site/groups-detailed-report}">Groups detailed report</a>
+				<a class="collapse-item" href="@{/reports/site/file-size-report}">File size report</a>
+				<a class="collapse-item" th:href="@{/reports/site/special-chracter-report}">Special character report</a>
+				<a class="collapse-item" th:href="@{/reports/site/url-issue-report}">URL issue report</a>
+				<a class="collapse-item" th:href="@{/reports/site/version-mismatch}">Version Mismatch</a>
+			</div>
+		</div>
+	</li>
+
+	<!-- Divider -->
+	<hr class="sidebar-divider d-none d-md-block">
+
+	<!-- Sidebar Toggler (Sidebar) -->
+	<div class="text-center d-none d-md-inline">
+		<button class="rounded-circle border-0" id="sidebarToggle"></button>
+	</div>
+
+</ul>
+<!-- End of Sidebar -->
+
+</th:block>

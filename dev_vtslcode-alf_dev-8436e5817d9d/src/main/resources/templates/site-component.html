@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<th:block th:insert="fragments/header :: header"></th:block>
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<th:block th:insert="fragments/sidebar :: left-sidebar"></th:block>
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<th:block th:insert="fragments/page-header :: page-header"></th:block>
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<div class="d-sm-flex align-items-center justify-content-between mb-4">
+						<label class="h5 mb-0 text-gray-800" th:text="${pageTitle}">EXPORT</label> <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+					</div>
+
+
+					<!-- Content Row -->
+					<div class="row">
+						<div class="col-12">
+							<div th:if="${status == 'success'}" class="alert alert-success alert-dismissible fade show mr-4" role="alert" style="float: right;">
+								<strong>Success!</strong> Import has been completed successfully.
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+						<form method="post" th:object="${siteContentExport}">
+							<div class="row col-12">
+								<div class="mb-3 col-12 col-sm-8 col-md-6">
+									<div class="form-group">
+										<label for="site">Select Site *</label> <select class="form-control" id="select-sites" th:field="*{siteId}" placeholder="Site">
+											<option value="">Select</option>
+											<option th:each="site : ${siteList}" th:value="${site.entry.id}" th:text="${site.entry.title}"></option>
+										</select>
+									</div>
+									<div class="invalid-feedback">Please Select Site</div>
+								</div>
+
+								<div class="mb-3 col-12">
+									<label for="outDir">Output Directory *</label> <input type="text" class="form-control" id="outDir" th:field="*{outDir}"
+										placeholder="Enter Output Directory. This should be a absolute path where user has write permission." />
+								</div>
+
+								<div class="mb-3 col-12 col-md-3">
+									<label for="fromDate">From Date</label> 
+									<input type="text" class="form-control" id="fromDate" th:field="*{fromDate}" autocomplete="off" placeholder="From Date" />
+								</div>
+
+								<div class="mb-3 col-12 col-md-3">
+									<label for="toDate">To Date</label> 
+									<input type="text" class="form-control" id="toDate" th:field="*{toDate}"  autocomplete="off" placeholder="To Date" />
+								</div>
+								<div class="mb-3 col-12 col-md-4">
+									<label for="vlevel">Export Version Up To (Level)</label> <input type="number" class="form-control" id="vlevel" th:field="*{vlevel}" placeholder="Must be an integer, -1 to export all" />
+								</div>
+
+								<!-- <div class="ml-3 mb-3 col-6 custom-control custom-checkbox">
+							<input type="checkbox" class="custom-control-input" id="ignoreVersions" th:field="*{ignoreVersion}" /> <label class="custom-control-label" for="ignoreVersions">Ignore Versions</label>
+						</div> -->
+								<div class="col-12 col-md-2 mt-md-4 pt-2">
+									<button class="btn btn-primary" type="submit">Export</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.container-fluid -->
+			</div>
+			<!-- End of Main Content -->
+			<th:block th:insert="fragments/select-node :: select-node-modal"></th:block>
+			<th:block th:insert="fragments/page-footer :: page-footer"></th:block>
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<th:block th:insert="fragments/footer :: footer"></th:block>
+
+	<script type="text/javascript" th:inline="javascript">
+		/*<![CDATA[*/
+		$('#fromDate').datepicker({});
+		$('#toDate').datepicker({});
+		/*]]>*/
+	</script>
+	</body>
+</html>
